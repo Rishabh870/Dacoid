@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Goals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="mx-auto p-5 max-w-sm h-screen">
+    <div class="container mx-auto py-8 h-full">
+      <h1 class="text-2xl font-semibold mx-auto w-fit">What are your goals?</h1>
+      <form
+        id="goalsForm "
+        onsubmit="submitForm(event)"
+        class="flex flex-col h-full pt-14"
+      >
+        <div
+          id="goalsList"
+          class="grid grid-cols-1 gap-4 text-sm font-semibold text-gray-800"
+        >
+          <!-- Goals will be dynamically rendered here -->
+        </div>
+        <!-- <div class="flex-1"></div> -->
+        <button
+          type="submit"
+          class="w-full m-auto py-3 bg-gradient-to-l from-[#7B91FF] to-[#95BEFF] text-white font-semibold py-2 px-4 rounded-xl transition duration-300 text-white"
+        >
+          Confirm
+        </button>
+      </form>
+    </div>
+
+    <script>
+      // List of goals
+      const goals = [
+        "Weight Loss",
+        "Muscle Gain",
+        "Flexibility and Mobility",
+        "General Fitness",
+        "Event-specific Training",
+        "Mindfulness and Mental Health",
+      ];
+
+      // Get the goalsList container
+      const goalsList = document.getElementById("goalsList");
+
+      // Loop through the goals array and dynamically create checkboxes
+      goals.forEach((goal) => {
+        const goalItem = document.createElement("div");
+        goalItem.classList.add(
+          "flex",
+          "items-center",
+          "bg-gray-100",
+          "p-4",
+          "justify-between",
+          "rounded-xl"
+        );
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = goal.toLowerCase().replace(/\s+/g, "");
+        checkbox.name = goal.toLowerCase().replace(/\s+/g, "");
+        checkbox.classList.add("mr-2", "w-5", "h-5", "border-[#809AFF]");
+
+        const label = document.createElement("label");
+        label.setAttribute("for", goal.toLowerCase().replace(/\s+/g, ""));
+        label.textContent = goal;
+
+        goalItem.appendChild(label);
+        goalItem.appendChild(checkbox);
+
+        goalsList.appendChild(goalItem);
+      });
+    </script>
+
+    <script>
+      // Function to handle form submission and redirect
+      function submitForm(event) {
+        event.preventDefault(); // Prevent default form submission behavior
+        // Redirect to "/"
+        window.location.href = "./tracker.html";
+      }
+    </script>
+  </body>
+</html>

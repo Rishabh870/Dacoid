@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Sign Up</title>
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="mx-auto max-w-sm h-screen border flex justify-center items-center py-8"
+  >
+    <div class="h-full pt-10 w-full px-6 flex flex-col">
+      <h2 class="text-2xl font-semibold mb-4">Create an Account</h2>
+      <form id="signupForm" class="mt-10 flex-1 flex flex-col">
+        <div class="mb-4">
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            required
+            placeholder="First Name"
+            class="mt-1 px-5 font-semibold text-sm bg-gray-100 h-12 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+          />
+        </div>
+        <div class="mb-4">
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            required
+            placeholder="Last Name"
+            class="mt-1 px-5 font-semibold text-sm bg-gray-100 h-12 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+          />
+        </div>
+        <div class="mb-4">
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+            placeholder="Email"
+            class="mt-1 px-5 font-semibold text-sm bg-gray-100 h-12 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+          />
+        </div>
+        <div class="mb-4">
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="new-password"
+            required
+            placeholder="Password"
+            class="mt-1 px-5 font-semibold text-sm bg-gray-100 h-12 focus:ring-blue-500 focus:border-blue-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+          />
+        </div>
+        <div class="mb-4 flex items-center justify-center">
+          <input
+            type="checkbox"
+            id="termsAndConditions"
+            name="termsAndConditions"
+            class="mr-2 h-4 w-4"
+            required
+          />
+          <label for="termsAndConditions" class="text-sm text-gray-400"
+            >By proceeding, I agree to all
+            <span><a class="underline text-blue-500" href="">T&C</a></span> and
+            <span
+              ><a class="underline text-blue-500" href="">
+                Privacy Policy</a
+              ></span
+            >
+          </label>
+        </div>
+        <div class="flex-1"></div>
+        <button
+          onclick="handleClick"
+          type="submit"
+          class="w-full py-3 text-white font-semibold py-2 px-4 rounded-md transition duration-300 bg-gradient-to-l from-[#7B91FF] to-[#95BEFF] text-white"
+        >
+          Create an Account
+        </button>
+      </form>
+      <div class="mt-4 flex flex-col items-center justify-between">
+        <div class="flex w-full items-center">
+          <hr class="w-full text-gray-600" />
+          <span class="mx-2"> or </span>
+          <hr class="w-full text-gray-600" />
+        </div>
+        <div class="flex my-6">
+          <button class="h-11 w-11 border rounded-md mr-5">
+            <i class="fa-brands fa-google"></i>
+          </button>
+          <button class="h-11 w-11 border rounded-md">
+            <i class="fa-brands fa-facebook-f"></i>
+          </button>
+        </div>
+        <div>
+          <span class="text-sm text-gray-600"
+            >Already have an account?
+            <a href="./login.html" class="text-blue-500">Login</a></span
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission behavior
+
+          // Perform signup logic here
+
+          // Redirect to another page after successful signup
+          window.location.href = "../pages/Goals.html";
+        });
+    </script>
+  </body>
+</html>
